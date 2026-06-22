@@ -10,7 +10,6 @@ import (
 	"sync"
 
 	"github.com/togo-framework/togo"
-	ti18n "github.com/togo-framework/togo/i18n"
 )
 
 func init() {
@@ -28,7 +27,7 @@ type Bundle struct {
 }
 
 // Load reads every <locale>.json in dir (missing dir is fine).
-func Load(dir, fallback string) ti18n.Translator {
+func Load(dir, fallback string) togo.Translator {
 	b := &Bundle{locales: map[string]map[string]string{}, fallback: fallback}
 	matches, _ := filepath.Glob(filepath.Join(dir, "*.json"))
 	for _, f := range matches {
